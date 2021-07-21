@@ -3,15 +3,15 @@ const figlet = require('figlet')
 
 const greet = require('./greet');
 
-const styledMessage = chalk.bgGreen.black(greet('Xola'));
+const styledMessage = greet('Xola');
 
-console.log(styledMessage)
+//console.log(styledMessage)
 
-figlet(greet("Xola"), function(err, data) {
+figlet(styledMessage, function(err, data) {
     if (err) {
         console.log('Something went wrong...');
         console.dir(err);
         return;
     }
-    console.log(data)
+    console.log(chalk.bgGreen.black(data))
 });
